@@ -1,22 +1,34 @@
 class Api::V1::CookersController < ApplicationController
+	# respond_to? :json
+
 	def index
 		@cookers = Cooker.all
 
 		render json: @cookers
 	end
 
-	def new
-		@cooker = Cooker.new
-	end
-
 	def create
-		@cooker = Cooker.new(cooker_params)
+		@cooker = Cooker.create(cooker_params)
 
-		render json: @cooker
+		render json: @cooker, location: url_for([:api, :v1, @cooker])
 	end
 
 	def show
 		@cooker = Cooker.find(params[:id])
+		render json: @cooker
+	end
+
+	def update
+		@cooker = Cooker.find(params[:id])
+		@cooker.update_attributes(cooker_params)
+
+		render json: @cooker
+	end
+
+	def destroy
+		@cooker = Cooker.find(params[:id])
+		@cooker.destroy
+
 		render json: @cooker
 	end
 
