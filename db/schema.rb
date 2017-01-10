@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109101104) do
+ActiveRecord::Schema.define(version: 20170110050339) do
 
-  create_table "api_v1_cookers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "cookers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "cooker_name"
     t.string   "cooker_email_address"
     t.string   "cooker_home_address"
