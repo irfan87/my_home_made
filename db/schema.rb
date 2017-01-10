@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110050339) do
+ActiveRecord::Schema.define(version: 20170110072901) do
 
   create_table "cookers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "cooker_name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20170110050339) do
     t.string   "cooker_other_phone_number"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "cooker_id"
+    t.string   "menu_title"
+    t.string   "menu_descriptions"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["cooker_id"], name: "index_menus_on_cooker_id", using: :btree
   end
 
 end

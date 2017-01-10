@@ -1,6 +1,4 @@
 class Api::V1::CookersController < ApplicationController
-	# respond_to? :json
-
 	def index
 		@cookers = Cooker.all
 
@@ -20,7 +18,7 @@ class Api::V1::CookersController < ApplicationController
 
 	def update
 		@cooker = Cooker.find(params[:id])
-		@cooker.update_attributes(cooker_params)
+		@cooker.update(cooker_params)
 
 		render json: @cooker
 	end
